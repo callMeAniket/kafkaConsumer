@@ -1,0 +1,13 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /Users/aniketsharma/Documents/consumerKafka/target/scala-3.3.3/consumerkafka_3-0.1.0-SNAPSHOT.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	HelloAkka$Greet$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/aniketsharma/Documents/consumerKafka/target/scala-3.3.3/classes/HelloAkka$Greet$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	HelloAkka$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/aniketsharma/Documents/consumerKafka/target/scala-3.3.3/classes/HelloAkka$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	HelloAkka$Greet.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/aniketsharma/Documents/consumerKafka/target/scala-3.3.3/classes/HelloAkka$Greet.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	HelloAkka.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/aniketsharma/Documents/consumerKafka/target/scala-3.3.3/classes/HelloAkka.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	HelloAkka.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/aniketsharma/Documents/consumerKafka/target/scala-3.3.3/classes/HelloAkka.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m
