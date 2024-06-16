@@ -26,7 +26,7 @@ class ElasticSearchService {
 
     val jsonRequest = ticket.toJson.compactPrint
     val entity = HttpEntity(ContentTypes.`application/json`, jsonRequest)
-    val url = "http://localhost:9200/my_index/_doc"
+    val url = "http://34.170.165.7/:9200/my_index/_doc"
 
     val request = HttpRequest(method = POST, uri = url, entity = entity)
 
@@ -34,7 +34,7 @@ class ElasticSearchService {
     responseFuture
       .onComplete {
         case Success(res) => println(res)
-        case Failure(_) => sys.error("something went wrong")
+        case Failure(h) => sys.error(s" Aniket_log something went wrong $h" )
       }
   }
 }
