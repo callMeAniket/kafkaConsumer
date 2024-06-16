@@ -28,9 +28,10 @@ class ElasticSearchService {
     val entity = HttpEntity(ContentTypes.`application/json`, jsonRequest)
     val url = "http://34.170.165.7/:9200/my_index/_doc"
 
-    val request = HttpRequest(method = POST, uri = url, entity = entity)
+    val request = HttpRequest(method = HttpMethods.POST, uri = url, entity = entity)
+      .addCredentials(BasicHttpCredentials("elastic", "changeme"))
 
-    val responseFuture: Future[HttpResponse] = Http().singleRequest(request.withHeaders(Authorization(BasicHttpCredentials("elastic", "changeme"))))
+    val responseFuture: Future[HttpResponse] = Http().singleRequest(request)
     responseFuture
       .onComplete {
         case Success(res) => println(res)
