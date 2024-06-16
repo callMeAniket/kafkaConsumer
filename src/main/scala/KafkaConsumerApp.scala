@@ -1,18 +1,17 @@
+import JsonFormats._
 import akka.actor.typed.ActorSystem
 import akka.actor.typed.scaladsl.Behaviors
-import akka.kafka.{ConsumerSettings, Subscriptions}
 import akka.kafka.scaladsl.Consumer
-import akka.stream.scaladsl.{Flow, Sink}
+import akka.kafka.{ConsumerSettings, Subscriptions}
+import akka.stream.scaladsl.Sink
+import com.typesafe.config.ConfigFactory
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.common.serialization.StringDeserializer
-import JsonFormats._
-import com.typesafe.config.ConfigFactory
 import spray.json._
 
 object KafkaConsumerApp {
   def main(args: Array[String]): Unit = {
     implicit val system: ActorSystem[_] = ActorSystem(Behaviors.empty, "kafkaConsumerSystem")
-    import system.executionContext
 
     val config = ConfigFactory.load()
     val kafkaConfig = config.getConfig("kafka")

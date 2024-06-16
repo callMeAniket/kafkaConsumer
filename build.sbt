@@ -13,6 +13,7 @@ resolvers += "Akka library repository".at("https://repo.akka.io/maven")
 
 lazy val akkaVersion = sys.props.getOrElse("akka.version", "2.9.3")
 
+fork := true
 libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-actor-typed" % akkaVersion,
   "ch.qos.logback" % "logback-classic" % "1.2.13",
