@@ -17,8 +17,10 @@ object TicketJsonProtocol extends DefaultJsonProtocol {
 }
 
 class ElasticSearchService {
-  def pushToElastic(ticketFormat: Ticket): Unit = {
-    val ticket: Ticket12 = Ticket12(ticketFormat.id, ticketFormat.title, ticketFormat.description, ticketFormat.department, ticketFormat.status, ticketFormat.assignedTo)
+  def pushToElastic(ticket: Ticket12): Unit = {
+    // Ensure that the implicit ticketFormat is in scope
+    import TicketJsonProtocol._
+
     implicit val system: ActorSystem[Any] = ActorSystem(Behaviors.empty, "SingleRequest")
     implicit val executionContext: ExecutionContextExecutor = system.executionContext
 
@@ -32,7 +34,7 @@ class ElasticSearchService {
     responseFuture
       .onComplete {
         case Success(res) => println(res)
-        case Failure(_) => sys.error("something wrong")
+        case Failure(_) => sys.error("something went wrong")
       }
   }
 }

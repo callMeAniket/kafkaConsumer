@@ -26,7 +26,8 @@ object KafkaConsumerApp {
       .map(_.value().parseJson.convertTo[Ticket]) // Convert JSON string to Person
       .runWith(Sink.foreach(ticket => {
         println(s"Received ticket: $ticket")
-        elasticSearchService.pushToElastic(ticket)
+        val ticket12:Ticket12 = Ticket12(ticket.id, ticket.title, ticket.description, ticket.department, ticket.status, ticket.assignedTo)
+        elasticSearchService.pushToElastic(ticket12)
       }))
   }
 }
