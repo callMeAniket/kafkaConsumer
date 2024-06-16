@@ -16,6 +16,7 @@ lazy val akkaVersion = sys.props.getOrElse("akka.version", "2.9.3")
 fork := true
 libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-actor-typed" % akkaVersion,
+  "com.typesafe.akka" %% "akka-http-spray-json" % "10.6.3",
   "ch.qos.logback" % "logback-classic" % "1.2.13",
   "com.typesafe.akka" %% "akka-actor-testkit-typed" % akkaVersion % Test,
   "org.scalatest" %% "scalatest" % "3.2.15" % Test

@@ -16,7 +16,7 @@ object KafkaConsumerApp {
     val config = ConfigFactory.load()
     val kafkaConfig = config.getConfig("kafka")
     val topic = kafkaConfig.getString("topic")
-
+    val elasticSearchService:ElasticSearchService = new ElasticSearchService
     val consumerSettings = ConsumerSettings(system, new StringDeserializer, new StringDeserializer)
       .withBootstrapServers(kafkaConfig.getString("bootstrap.servers"))
       .withGroupId("group1")
@@ -24,6 +24,9 @@ object KafkaConsumerApp {
 
     Consumer.plainSource(consumerSettings, Subscriptions.topics(topic))
       .map(_.value().parseJson.convertTo[Ticket]) // Convert JSON string to Person
-      .runWith(Sink.foreach(person => println(s"Received ticket: $person")))
+      .runWith(Sink.foreach(ticket => {
+        println(s"Received ticket: $ticket")
+        elasticSearchService.pushToElastic(ticket)
+      }))
   }
 }
